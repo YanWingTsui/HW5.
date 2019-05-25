@@ -16,7 +16,25 @@ namespace nodespace{
             tail_ptr=NULL;
             list_length=0;
         }
-        // functions modified from the linked list toolkit
+	class queue
+	{
+        	int *arr;
+		int front;
+		int back;
+		int count;
+	 
+	public:
+		queue(int size =SIZE);
+		
+		void dequeue();
+		void enqueue(int x);
+		int peek();
+		int size();
+		bool isEmpty();
+		bool isFull();
+	}
+	
+	    
         std::size_t length(const node* head_ptr){return list_length;}
         
         //add to end, insert at position P
