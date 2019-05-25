@@ -9,6 +9,23 @@
 #include "node.h"
 
 namespace nodespace{
+	
+struct queueNode
+{
+        int cust_n;
+        int serv_t;
+        int arr_t;
+        struct queueNode *nextPtr;
+};
+
+typedef struct queueNode customer;
+typedef customer *customerPtr;
+void printQueue( customerPtr );
+int isEmpty( customerPtr );
+void dequeue( customerPtr *, customerPtr * );
+void enqueue( customerPtr *, customerPtr *, int ,int ,int );
+	
+	
     class LList{
 	public:
         LList(){
@@ -16,23 +33,7 @@ namespace nodespace{
             tail_ptr=NULL;
             list_length=0;
         }
-	class queue
-	{
-        	int *arr;
-		int front;
-		int back;
-		int count;
-	 
-	public:
-		queue(int size =SIZE);
-		
-		void dequeue();
-		void enqueue(int x);
-		int peek();
-		int size();
-		bool isEmpty();
-		bool isFull();
-	}
+	
 	
 	    
         std::size_t length(const node* head_ptr){return list_length;}
