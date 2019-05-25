@@ -10,6 +10,16 @@
 
 namespace nodespace{
 	
+	
+class LList
+{
+public:
+	LList()
+	{
+            head_ptr=NULL;
+            tail_ptr=NULL;
+            list_length=0;
+	}
 struct queueNode
 {
         int cust_n;
@@ -25,14 +35,6 @@ int isEmpty( customerPtr );
 void dequeue( customerPtr *, customerPtr * );
 void enqueue( customerPtr *, customerPtr *, int ,int ,int );
 	
-	
-    class LList{
-	public:
-        LList(){
-            head_ptr=NULL;
-            tail_ptr=NULL;
-            list_length=0;
-        }
 	
 	
 	    
