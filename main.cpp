@@ -5,48 +5,48 @@
 #include "queue.h"
 
 
-void enqueue( customerPtr *headPtr, customerPtr *tailPtr,int cust_n,int serv_t,int arr_t)
+void enqueue( customerP *head_Ptr, customerP *tail_Ptr,int cust,int serv,int arr)
         {
-                customerPtr newPtr; newPtr = malloc( sizeof( customer ) );
-                if ( newPtr != NULL )
+                customerP newP; newP = malloc( sizeof( customer ) );
+                if ( newP != NULL )
                 {
-                        newPtr->cust_n = cust_n;
-                        newPtr->serv_t = serv_t;
-                        newPtr->arr_t = arr_t;
-                        newPtr->nextPtr = NULL;
-                        if ( isEmpty( *headPtr ) ) *headPtr = newPtr;
-                        else ( *tailPtr )->nextPtr = newPtr;
-                        *tailPtr = newPtr;
+                        newP->cust = cust;
+                        newP->serv = serv;
+                        newP->arr = arr;
+                        newP->nextP = NULL;
+                        if ( isEmpty( *headPtr ) ) *head_Ptr = newP;
+                        else ( *tail_Ptr )->nextP = newP;
+                        *tail_Ptr = newP;
                 }
                 else
                 printf("Empty.\n");
         };
 
-void dequeue( customerPtr *headPtr, customerPtr *tailPtr )
+void dequeue( customerP *head_Ptr, customerP *tail_Ptr )
         {
-                customerPtr tempPtr;
-                tempPtr = *headPtr;
-                *headPtr = ( *headPtr )->nextPtr;
-                if ( *headPtr == NULL ) *tailPtr = NULL;
-                free( tempPtr );
+                customerP tempP;
+                tempP = *head_Ptr;
+                *head_Ptr = ( *head_Ptr )->nextP;
+                if ( *head_Ptr == NULL ) *tail_Ptr = NULL;
+                free( tempP );
         };
         
-int isEmpty( customerPtr headPtr )
+int isEmpty( customerP head_Ptr )
         {
-                return headPtr == NULL;
+                return head_Ptr == NULL;
         };
         
-void printQueue( customerPtr currentPtr )
+void printQueue( customerP currentP )
         {
-                if ( currentPtr == NULL )
-                printf( "Queue is empty.\n\n" );
+                if ( currentP == NULL )
+                printf( "Empty.\n\n" );
                 else
                 {
                         printf( "The queue is:\n" );
-                        while ( currentPtr != NULL )
+                        while ( currentP != NULL )
                         {
-                                printf( "%d <-- ", currentPtr->cust_n );
-                                currentPtr = currentPtr->nextPtr;
+                                printf( "%d <-- ", currentt->cust );
+                                currentP = currentP->nextP;
                         }
         printf( "NULL\n\n" );
         };
@@ -61,7 +61,7 @@ int main()
         int MAX_SERV_TIME = serv_time;
         int tot_wait_t = 0;
         
-        customerPtr headptr = NULL,tailptr = NULL;
+        customerP head_ptr = NULL,tail_ptr = NULL;
         srand((unsigned int)time(NULL));
         
         while(t_time != 10)
@@ -88,19 +88,19 @@ int main()
                         printf("customer %d joins at %d,serv_time %d,new_cust %d\n",tailptr->cust_n,tailptr->arr_t,tailptr->serv_t,t_arrival);
                 }
 
-                printQueue(headptr);
+                printQueue(head_ptr);
                 getchar();
                 t_time++;
         }
         
-        customer_n = (tailptr->cust_n - headptr->cust_n)+ 1;
+        customer_n = (tail_ptr->cust_n - head_ptr->cust)+ 1;
         printf("average wait time = %d,max service time = %d,tot custs unserved %d\n\n",tot_wait_t/customer_n,MAX_SERV_TIME,customer_n);
         
         for(i = 0;i<customer_n;i++)
                 {
-                        printQueue(headptr);
+                        printQueue(head_ptr);
                         getchar();
-                        dequeue(&headptr,&tailptr); }
+                        dequeue(&head_ptr,&tail_ptr); }
                 }
        
 }
