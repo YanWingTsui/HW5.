@@ -2,8 +2,8 @@
 #include<vector>
 
 #include "node.h"
-#include "llist.h"
-#include <time.h>
+#include "queue.h"
+
 
 void enqueue( customerPtr *headPtr, customerPtr *tailPtr,int cust_n,int serv_t,int arr_t)
         {
@@ -19,7 +19,7 @@ void enqueue( customerPtr *headPtr, customerPtr *tailPtr,int cust_n,int serv_t,i
                         *tailPtr = newPtr;
                 }
                 else
-                printf("No memory available.\n");
+                printf("Empty.\n");
         };
 
 void dequeue( customerPtr *headPtr, customerPtr *tailPtr )
