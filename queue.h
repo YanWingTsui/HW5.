@@ -22,18 +22,18 @@ public:
 	}
 struct queueNode
 {
-        int cust_n;
-        int serv_t;
-        int arr_t;
-        struct queueNode *nextPtr;
+        int cust;
+        int serv;
+        int arr;
+        struct queueNode *nextP;
 };
 
 typedef struct queueNode customer;
-typedef customer *customerPtr;
-void printQueue( customerPtr );
-int isEmpty( customerPtr );
-void dequeue( customerPtr *, customerPtr * );
-void enqueue( customerPtr *, customerPtr *, int ,int ,int );
+typedef customer *customerP;
+void printQueue( customerP );
+int isEmpty( customerP );
+void dequeue( customerP *, customerP * );
+void enqueue( customerr *, customerP *, int ,int ,int );
 	
 	
 	
